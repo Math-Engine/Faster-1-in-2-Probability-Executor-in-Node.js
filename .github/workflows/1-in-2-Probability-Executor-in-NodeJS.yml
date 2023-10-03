@@ -1,0 +1,29 @@
+name: Faster-1-in-2-Probability-Executor-in-Node.js
+on:
+  schedule:
+   - cron: '*/5 * * * *'
+  workflow_dispatch:
+    inputs:
+      Execution_Count:
+        description: 'Execution Count'
+        required: true
+        default: '100000000'
+        type: string
+
+run-name: Faster - 1 in 2 Probability Executor in Node.js ( ${{ github.event.inputs.Execution_Count || '100000000' }} )
+
+concurrency:
+  group: my-workflow-group
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+      - name: Run script
+        run: node script.js ${{ github.event.inputs.Execution_Count || '100000000' }}
