@@ -74,8 +74,8 @@ console.log("============================")
 
 a_Minus_b = bigNumberSubtract(a, b);
 
+execSync(`git pull -f`);
 fs.writeFileSync('result.json', JSON.stringify(resultJSON, null, 2));
-execSync(`git pull -f`)
 execSync(`git config user.name "github-actions[bot]" && git config user.email "github-actions[bot]@users.noreply.github.com"`);
 let commitMessage = `( ${bigNumberAdd(startNum, '1')} ~ ${endNum} ) a = ${a}, b = ${b} ( | a - b | = ${a_Minus_b[0] == '-' ? a_Minus_b.slice(1) : a_Minus_b} )`;
 execSync(`git add . && git commit -m "${commitMessage}" && git push`);
