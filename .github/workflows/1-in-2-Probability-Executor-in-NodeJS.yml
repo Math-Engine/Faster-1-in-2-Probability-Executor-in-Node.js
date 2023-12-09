@@ -12,9 +12,6 @@ on:
 
 run-name: Faster - 1 in 2 Probability Executor in Node.js ( ${{ github.event.inputs.Execution_Count || '10000000000' }} )
 
-concurrency:
-  group: my-workflow-group
-
 jobs:
   build:
     runs-on: ubuntu-latest
