@@ -70,7 +70,7 @@ console.log("============================");
 console.log(resultJSON);
 console.log("============================");
 console.log("a = ${a}\nb=${b}\n(| a - b | = ${a_Minus_b[0] == '-' ? a_Minus_b.slice(1) : a_Minus_b})\na + b = ${processArgv2}");
-console.log("============================")
+console.log("============================");
 
 a_Minus_b = bigNumberSubtract(a, b);
 
